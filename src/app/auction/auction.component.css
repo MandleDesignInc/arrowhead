@@ -1,0 +1,36 @@
+.page {
+    padding: 50px 0;
+    min-height: 50vh;
+}
+.max-width-container {
+    position: relative;
+    max-width: 1080px; /* adjusted to comprehend margins on mat-card */
+    margin: auto;
+}
+
+.auction-cards {
+    padding: 50px 0;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+mat-card {
+    font-family: 'Asap', sans-serif;
+    flex: auto;
+    width: 25%;
+    margin: 10px;
+}
+
+@media (max-width: 1139px) {
+    .max-width-container {
+        margin: 20px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    mat-card {
+        width: 80%;
+    }
+
+}

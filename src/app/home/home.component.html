@@ -1,0 +1,38 @@
+<div *ngIf="page" id="home" class="global-page-styles">
+
+    <mdl-slider [slides]="page.slides" [useChevrons]="true" [auto]="true"></mdl-slider>
+
+    <div id="welcomeBackground">
+        <div class="max-width-container" [innerHTML]="page.safeContent"></div>
+    </div>
+
+    <div id="featuresBackground">
+
+        <div id="features" class="max-width-container">
+
+            <mat-card *ngFor="let feature of page.features" class="mat-elevation-z1">
+
+                <img mat-card-image [src]="feature.image">
+                <mat-card-title>{{feature.title}}</mat-card-title>
+                <mat-card-content [innerHTML]="feature.safeDesc"></mat-card-content>
+                <mat-card-actions>
+
+                    <span *ngIf="feature.linkIsExternal;then external else internal"></span>
+
+                    <ng-template #external>
+                        <a mat-button [href]="feature.link">LEARN MORE</a>
+                    </ng-template>
+
+                    <ng-template #internal>
+                        <a mat-button [routerLink]="['/', feature.link]" routerLinkActive="active">LEARN MORE</a>
+                    </ng-template>
+
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+
+    </div>
+
+</div>

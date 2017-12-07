@@ -1,0 +1,57 @@
+.page {
+    padding: 50px 0;
+    min-height: 50vh;
+}
+.max-width-container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+.content {
+    font-size: 24px;
+}
+
+mat-table {
+    font-family: 'Asap', sans-serif;
+}
+
+button {
+    font-family: 'Asap', sans-serif;
+    color: #9F9163;
+    min-width: 0;
+}
+
+button:hover {
+    color: #2c343b;
+}
+
+.table-header-cell-apply-now-content {
+    padding-left: 16px;
+}
+
+.mat-column-apply-now {
+    flex: .2;
+}
+
+@media (max-width: 900px) {
+
+    .content {
+        font-size: 18px;
+    }
+
+    .mat-column-description {
+        display: none;
+    }
+
+    .table-header-cell-apply-now-content {
+        display: none;
+    }
+
+
+}
+
+@media (max-width: 1139px) {
+    .max-width-container {
+        margin: 20px;
+    }
+}

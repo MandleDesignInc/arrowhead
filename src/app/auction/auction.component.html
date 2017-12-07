@@ -1,0 +1,21 @@
+<div *ngIf="page" class="page global-page-styles">
+
+  <div class="max-width-container">
+
+    <div [innerHTML]="page.safeContent"></div>
+
+    <div class="auction-cards">
+
+      <mat-card *ngFor="let item of page.auctionList">
+
+        <img mat-card-image [src]="item.data.image">
+
+        <mat-card-title>{{item.data.title}}</mat-card-title>
+
+      </mat-card>
+
+    </div>
+
+  </div>
+
+</div>

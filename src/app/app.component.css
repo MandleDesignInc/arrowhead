@@ -1,0 +1,114 @@
+app-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+button {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+button mat-icon { color: #061C3B; }
+
+mat-sidenav-container { margin-top: 239px; }
+
+mat-sidenav {
+    width: 260px;
+    min-height: 50vh;
+    background: #e8ecef;
+}
+
+mat-sidenav a {
+    font-family: 'Asap', sans-serif;
+    color: #2c343b;
+}
+
+mat-sidenav a.active-route {
+    background: rgba(0,0,0,.04);
+    color: #9F9163;
+}
+
+mat-expansion-panel {
+    box-shadow: none !important;
+    background: transparent !important;
+}
+
+mat-expansion-panel a {
+    flex-grow: 1;
+}
+
+.mat-expansion-panel-header {
+    padding: 0 24px 0 0;
+}
+
+.deep-nested {
+    font-size: 1em;
+}
+
+footer {
+    font-family: 'Asap', sans-serif;
+    background: #9F9163;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding-top: 20px;
+    padding-bottom: 60px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+#siteBy {
+    position: absolute;
+    bottom: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#footerInfo {
+    text-align: center;
+}
+
+#footerList {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8px;
+
+}
+
+#footerList div {
+    border-left: solid 1px white;
+    padding: 0 8px;
+}
+
+#footerList div:first-child {
+    border-left: none;
+}
+
+@media (max-width: 900px) {
+    mat-sidenav-container { margin-top: 175px; }
+
+    #footerList {
+        flex-direction: column;
+    }
+
+    #footerList div {
+        border-left: none;
+        text-align: center;
+    }
+}
+
+
+
+
+

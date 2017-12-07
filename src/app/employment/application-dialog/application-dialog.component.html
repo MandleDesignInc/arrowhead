@@ -1,0 +1,198 @@
+<span class="global-page-styles">
+
+
+  <h2>{{data.job.title}}</h2>
+
+  <div [innerHTML]="data.job.safeContent"></div>
+
+  <h3>APPLY NOW: </h3>
+
+  <mat-horizontal-stepper #stepper [linear]="true">
+
+
+    <mat-step [stepControl]="nameForm">
+
+      <form [formGroup]="nameForm">
+        <ng-template matStepLabel>Your name</ng-template>
+
+        <div class="vertical">
+
+          <mat-form-field class="item">
+            <input matInput placeholder="First name" formControlName="firstName" required>
+          </mat-form-field>
+
+          <mat-form-field class="item">
+            <input matInput placeholder="Last name" formControlName="lastName" required>
+          </mat-form-field>
+
+        </div>
+
+
+        <div class="control-buttons">
+          <button mat-button matStepperNext>NEXT</button>
+        </div>
+      </form>
+
+    </mat-step>
+
+    <mat-step [stepControl]="contactForm">
+
+      <form [formGroup]="contactForm">
+
+        <ng-template matStepLabel>Your contact info</ng-template>
+
+        <div class="vertical">
+
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="email" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="phone" formControlName="phone" required>
+        </mat-form-field>
+
+      </div>
+
+      <div class="vertical">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Street" formControlName="street" required>
+        </mat-form-field>
+      </div>
+
+      <div class="vertical">
+        <mat-form-field>
+          <input matInput placeholder="City" formControlName="city" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="State" formControlName="state" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput maxlength="5" placeholder="Postal Code" formControlName="zip" required>
+        </mat-form-field>
+      </div>
+
+      <div class="control-buttons">
+        <button type="button" mat-button matStepperPrevious>BACK</button>
+        <button type="button" mat-button matStepperNext>NEXT</button>
+      </div>
+
+    </form>
+
+
+
+  </mat-step>
+
+
+  <mat-step [stepControl]="summaryForm">
+
+    <form [formGroup]="summaryForm">
+
+
+      <ng-template matStepLabel>Tell us about yourself</ng-template>
+
+      <div class="vertical">
+
+        <mat-form-field>
+          <textarea matInput
+                    formControlName="summary"
+                    [placeholder]="data.job.summaryPlaceholder">
+          </textarea>
+        </mat-form-field>
+
+      </div>
+
+
+
+      <div class="control-buttons">
+        <button type="button" mat-button matStepperPrevious>BACK</button>
+        <button type="button" mat-button matStepperNext>NEXT</button>
+      </div>
+
+
+    </form>
+
+  </mat-step>
+
+
+  <mat-step [stepControl]="resumeAttached" optional>
+
+    <form [formGroup]="resumeForm" enctype="multipart/form-data">
+
+      <ng-template matStepLabel>Attach your resume</ng-template>
+
+      <div class="upload-field">
+        <input #file type="file" name="resume" (change)="onFileChange($event)">
+      </div>
+
+      <div class="control-buttons">
+        <button mat-button matStepperPrevious>BACK</button>
+        <button mat-button matStepperNext>NEXT</button>
+      </div>
+
+
+    </form>
+
+  </mat-step>
+
+  <mat-step [stepControl]="submitted">
+
+    <div class="formless-step-container">
+
+      <ng-template matStepLabel>Review and submit</ng-template>
+
+      <div class="review-container">
+
+        <div class="review info">
+          <h2>{{application.name.firstName}} {{application.name.lastName}}</h2>
+          <h4>{{application.contact.email}}</h4>
+          <h4>{{application.contact.phone}}</h4>
+          <h4>{{application.contact.street}}</h4>
+          <h4>{{application.contact.city}}, {{application.contact.state}} {{application.contact.zip}}</h4>
+        </div>
+
+        <div class="review summary">
+          <h4>{{application.summary}}</h4>
+        </div>
+      </div>
+
+
+
+
+      <div class="control-buttons">
+        <button mat-button matStepperPrevious>BACK</button>
+        <button class="submit" mat-button (click)="sendApplication()">SUBMIT</button>
+      </div>
+
+    </div>
+
+
+  </mat-step>
+
+  <mat-step>
+
+    <div class="formless-step-container">
+
+      <ng-template matStepLabel>Complete</ng-template>
+
+      <div class="success">
+        {{data.job.thankYou}}
+      </div>
+
+
+      <div class="control-buttons">
+        <button mat-button (click)="dialogRef.close()">close</button>
+      </div>
+
+
+    </div>
+
+  </mat-step>
+
+</mat-horizontal-stepper>
+
+</span>
+
+
+
+
+
+

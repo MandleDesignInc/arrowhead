@@ -1,0 +1,57 @@
+<div *ngIf="isReady" class="page global-page-styles">
+
+  <div class="max-width-container">
+
+    <div class="vertical">
+
+
+      <div class="content" [innerHTML]="page.safeContent"></div>
+
+      <div class="contact">
+        <h3>Contact Us:</h3>
+
+
+        <form [formGroup]="contactForm">
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Email" formControlName="email" required>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Phone" formControlName="phone">
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="message" formControlName="message" required></textarea>
+          </mat-form-field>
+
+
+          <div class="control-buttons">
+            <button mat-button (click)="onSendForm()">SEND</button>
+          </div>
+
+        </form>
+
+      </div>
+
+
+
+    </div>
+
+    <div *ngIf="devModeEnabled">
+      <div>{{contactFormData.name}}</div>
+      <div>{{contactFormData.email}}</div>
+      <div>{{contactFormData.phone}}</div>
+      <div>{{contactFormData.message}}</div>
+    </div>
+
+
+
+  </div>
+
+</div>
+

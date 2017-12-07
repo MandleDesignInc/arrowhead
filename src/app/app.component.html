@@ -1,0 +1,133 @@
+<div *ngIf="globalContent">
+
+  <app-bar [navigationMenu]="navigationMenu"></app-bar>
+
+  <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
+
+  <mat-sidenav-container>
+
+    <mat-sidenav #sidenav mode="push">
+
+
+      <mat-nav-list>
+
+        <span *ngFor="let item of navigationMenu">
+
+        <span *ngIf="item.hasChildren;then children else noChildren"></span>
+
+
+        <ng-template #children>
+
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title><a mat-list-item [routerLink]="item.routerLink" routerLinkActive="active-route" (click)="sidenav.toggle()">{{item.title}}</a></mat-panel-title>
+            </mat-expansion-panel-header>
+
+
+
+
+
+
+
+
+            <span *ngFor="let nested of item.nestedItems">
+
+              <span *ngIf="nested.hasChildren;then nestedChildren else noNestedChildren"></span>
+
+
+
+              <ng-template #nestedChildren>
+
+                <mat-expansion-panel>
+                  <mat-expansion-panel-header>
+                    <mat-panel-title><a mat-list-item [routerLink]="nested.routerLink" routerLinkActive="active-route" (click)="sidenav.toggle()">{{nested.title}}</a></mat-panel-title>
+                  </mat-expansion-panel-header>
+
+
+
+                  <a class="deep-nested" *ngFor="let deepNested of nested.nestedItems" mat-list-item [routerLink]="deepNested.routerLink" routerLinkActive="active-route" (click)="sidenav.toggle()">{{deepNested.title}}</a>
+
+
+                </mat-expansion-panel>
+
+
+              </ng-template>
+
+
+              <ng-template #noNestedChildren>
+
+                <a mat-list-item [routerLink]="nested.routerLink" routerLinkActive="active-route" (click)="sidenav.toggle()">{{nested.title}}</a>
+
+              </ng-template>
+
+
+            </span>
+
+
+
+
+
+
+
+
+          </mat-expansion-panel>
+
+        </ng-template>
+
+
+
+
+        <ng-template #noChildren>
+
+          <a mat-list-item [routerLink]="item.routerLink" routerLinkActive="active-route">{{item.title}}</a>
+
+        </ng-template>
+
+
+
+
+
+        </span>
+
+
+
+      </mat-nav-list>
+
+    </mat-sidenav>
+
+
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+
+
+  </mat-sidenav-container>
+
+  <footer>
+
+    <div id="footerContent">
+
+      <div id="footerInfo">{{globalContent.footerContent.info}}</div>
+
+      <div id="footerList">
+        <div>{{globalContent.footerContent.address}}</div>
+        <div><a [href]="'tel:' + globalContent.footerContent.phoneHREF">Phone: {{globalContent.footerContent.phone}}</a></div>
+        <div>Fax: {{globalContent.footerContent.fax}}</div>
+      </div>
+
+
+    </div>
+
+    <div id="siteBy">
+      <a href="http://mandledesign.com">Site by Mandle Design, Inc.</a>
+    </div>
+
+
+  </footer>
+
+</div>
+
+
+
+
+

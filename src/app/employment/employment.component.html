@@ -1,0 +1,41 @@
+<div *ngIf="page" class="page global-page-styles">
+
+  <div class="max-width-container">
+    <div [innerHTML]="page.safeContent" class="content"></div>
+
+    <div class="mat-elevation-z8">
+
+        <mat-table #table [dataSource]="dataSource">
+
+            <ng-container matColumnDef="position">
+                <mat-header-cell *matHeaderCellDef> POSITION  </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef> DESCRIPTION </mat-header-cell>
+
+                <mat-cell *matCellDef="let row;"> {{row.previewContent}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="apply-now">
+                <mat-header-cell *matHeaderCellDef> <span class="table-header-cell-apply-now-content"> APPLY </span> </mat-header-cell>
+                <mat-cell *matCellDef="let row;">
+                    <button mat-button (click)="openApplicationDialog(row)">APPLY</button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-table>
+
+        <mat-paginator #paginator [length]="page.jobs.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    </div>
+
+
+
+  </div>
+
+</div>
