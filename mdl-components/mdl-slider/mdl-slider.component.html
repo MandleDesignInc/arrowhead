@@ -1,0 +1,53 @@
+<div class="mdl-slider" *ngIf="slides">
+
+  <span *ngIf="useChevrons" class="prev-container">
+    <button (click)="manualSlideTo(activeIndex - 1)"><i class="material-icons">chevron_left</i></button>
+  </span>
+
+  <span *ngIf="useChevrons" class="next-container">
+    <button (click)="manualSlideTo(activeIndex + 1)"><i class="material-icons">chevron_right</i></button>
+  </span>
+
+
+  <span   *ngFor="let slide of slides"
+          class="slide"
+          [@fade]="slide.state"
+          [style.background]="'url(' + slide.image + ')'"
+          [style.backgroundSize]="'cover'"
+          [style.backgroundRepeat]="'no-repeat'"
+          [style.backgroundPosition]="'top center'">
+
+      <span *ngIf="slide.linkIsExternal;then external else internal"></span>
+
+                    <ng-template #external>
+                        <a mat-button [href]="slide.link"></a>
+                    </ng-template>
+
+                    <ng-template #internal>
+                        <a mat-button [routerLink]="['/', slide.link]" routerLinkActive="active"></a>
+                    </ng-template>
+
+
+    </span>
+
+  <span class="max-width-container">
+
+        <span [class]="'caption-container '">
+
+            <span class="caption">{{activeCaption}}</span>
+
+            <span *ngIf="useIndicators" class="indicators">
+
+                <button *ngFor="let slide of slides; let i = index" [class]="'indicator ' + slide.state" (click)="manualSlideTo(i)">
+                    <span class="cdk-visually-hidden">Select slider image number {{i}}</span>
+                    <i class="material-icons">chevron_right</i>
+                </button>
+
+            </span>
+
+
+        </span>
+
+    </span>
+
+</div>
