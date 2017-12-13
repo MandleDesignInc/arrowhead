@@ -19,7 +19,13 @@ export class PageComponent implements OnInit {
     let pageId = this.globalSvc.getPageId(this.location.path());
 
 
-    this.pageSvc.getPage(pageId).subscribe(page => this.page = page);
+    this.pageSvc.getPage(pageId).subscribe(page => {
+      this.page = page;
+
+      if (this.page.classKey === 'modStaticResource') {
+        window.location.href = page.staticResourceContent.toString();
+      }
+    });
   }
 
 }

@@ -50,9 +50,7 @@ export class NavigationItem {
 
     nestedItems: NavigationItem[] = [];
 
-    constructor(public routerLink: string, public title: string) {
-
-
+    constructor(public link: string, public title: string, public external: boolean = false) {
 
     }
 
@@ -148,8 +146,9 @@ export class GlobalService {
 
         about.add(new NavigationItem('/staff', 'Staff'));
         about.add(new NavigationItem('/board-of-directors', 'Our Board of Directors'));
-        about.add(new NavigationItem('/strategic-plan', '3 Year Strategic Plan'));
+        about.add(new NavigationItem('strategic-plan', '3 Year Strategic Plan', true));
         about.add(new NavigationItem('/executive-summary', 'Executive Summary'));
+        about.add(new NavigationItem('/newsletter', 'Newsletter', true));
 
 
         let ourProgram = new NavigationItem('/our-program', 'OUR PROGRAM');
