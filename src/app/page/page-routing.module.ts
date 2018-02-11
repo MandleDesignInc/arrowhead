@@ -12,6 +12,7 @@ import {PageComponent} from './page.component';
         {path: 'mission-statement', component: PageComponent},
         {path: 'affiliations', component: PageComponent},
         {path: 'success-stories', component: PageComponent},
+        {path: 'newsletter', component: PageComponent},
 
         // success-stories children
         {path: 'in-their-own-words', component: PageComponent},

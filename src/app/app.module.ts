@@ -31,6 +31,7 @@ import {PageService} from './page/page.service';
 import {AuctionService} from './auction/auction.service';
 import {EmploymentService} from './employment/employment.service';
 import {ContactService} from './contact/contact.service';
+import { NavigationLinkComponent } from './navigation-link/navigation-link.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import {ContactService} from './contact/contact.service';
       AppComponent,
       ErrorComponent,
       PageComponent,
+      NavigationLinkComponent,
   ],
   imports: [
       BrowserModule,
@@ -57,6 +59,7 @@ import {ContactService} from './contact/contact.service';
       MatExpansionModule,
       AppRoutingModule
   ],
+  exports: [NavigationLinkComponent],
   providers: [GlobalService, HomeService, PageService, AuctionService, EmploymentService, ContactService],
   bootstrap: [AppComponent]
 })

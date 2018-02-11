@@ -32,7 +32,7 @@
 
                 <div class="dropdown">
 
-                    <a class="dropBtn" [routerLink]="item.routerLink" routerLinkActive="active-route">{{item.title}}</a>
+                    <a class="dropBtn" [routerLink]="item.link" routerLinkActive="active-route">{{item.title}}</a>
 
                     <div class="dropdown-content">
 
@@ -47,9 +47,9 @@
 
 
                                 <div class="nested-dropdown">
-                                    <a class="nested-dropBtn" [routerLink]="nested.routerLink" routerLinkActive="active-route">{{nested.title}}</a>
+                                    <a class="nested-dropBtn" [routerLink]="nested.link" routerLinkActive="active-route">{{nested.title}}</a>
                                     <div class="nested-dropdown-content">
-                                        <a *ngFor="let deepNested of nested.nestedItems" [routerLink]="deepNested.routerLink" routerLinkActive="active-route">{{deepNested.title}}</a>
+                                        <a *ngFor="let deepNested of nested.nestedItems" [routerLink]="deepNested.link" routerLinkActive="active-route">{{deepNested.title}}</a>
                                     </div>
                                 </div>
 
@@ -61,7 +61,7 @@
 
 
                             <ng-template #nestedNoDropdown>
-                                <a [routerLink]="nested.routerLink" routerLinkActive="active-route">{{nested.title}}</a>
+                                <a [routerLink]="nested.link" routerLinkActive="active-route">{{nested.title}}</a>
                             </ng-template>
 
 
@@ -89,11 +89,9 @@
 
             </ng-template>
 
-
-
             <ng-template #noDropdown>
 
-                <a [routerLink]="item.routerLink" routerLinkActive="active-route">{{item.title}}</a>
+                <a [routerLink]="item.link" routerLinkActive="active-route">{{item.title}}</a>
 
             </ng-template>
 

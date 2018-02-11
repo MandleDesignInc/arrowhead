@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
+import {DomSanitizer, SafeHtml, SafeUrl} from '@angular/platform-browser';
 
 
 export class PageData {
@@ -53,7 +53,11 @@ export class PageData {
 export class Page {
 
     title: string;
+
     safeContent: SafeHtml;
+    staticResourceContent: SafeUrl;
+
+    classKey: string;
 
     constructor() { }
 
@@ -61,8 +65,16 @@ export class Page {
 
         let page = new Page();
 
+        if (data.class_key === 'modStaticResource') {
+            let staticContent = 'http://arrowheadyouth.com/cms/' + data.content;
+            page.staticResourceContent = sanitizer.bypassSecurityTrustUrl(staticContent);
+        } else {
+            page.safeContent = sanitizer.bypassSecurityTrustHtml(data.content);
+        }
+
         page.title = data.pagetitle;
-        page.safeContent = sanitizer.bypassSecurityTrustHtml(data.content);
+
+        page.classKey = data.class_key;
 
         return page;
     }
