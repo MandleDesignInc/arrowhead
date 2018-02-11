@@ -13,12 +13,13 @@ import {PageComponent} from './page.component';
         {path: 'affiliations', component: PageComponent},
         {path: 'success-stories', component: PageComponent},
         {path: 'newsletter', component: PageComponent},
+        {path: 'arrowhead-2020', component: PageComponent},
 
         // success-stories children
         {path: 'in-their-own-words', component: PageComponent},
 
         {path: 'staff', component: PageComponent},
-        {path: 'board-of-directors', component: PageComponent},
+        {path: 'our-board-of-directors', component: PageComponent},
         {path: 'strategic-plan', component: PageComponent},
         {path: 'executive-summary', component: PageComponent},
 

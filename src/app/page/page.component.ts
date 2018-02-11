@@ -23,7 +23,7 @@ export class PageComponent implements OnInit {
       this.page = page;
 
       if (this.page.classKey === 'modStaticResource') {
-        window.location.href = page.staticResourceContent.toString();
+        window.location.href = page.staticResourceContent;
       }
     });
   }

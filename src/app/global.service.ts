@@ -145,10 +145,11 @@ export class GlobalService {
         about.add(successStories);
 
         about.add(new NavigationItem('/staff', 'Staff'));
-        about.add(new NavigationItem('/board-of-directors', 'Our Board of Directors'));
+        about.add(new NavigationItem('/our-board-of-directors', 'Our Board of Directors'));
         about.add(new NavigationItem('strategic-plan', '3 Year Strategic Plan', true));
         about.add(new NavigationItem('/executive-summary', 'Executive Summary'));
         about.add(new NavigationItem('/newsletter', 'Newsletter', true));
+        about.add(new NavigationItem('/arrowhead-2020', 'Arrowhead 2020'));
 
 
         let ourProgram = new NavigationItem('/our-program', 'OUR PROGRAM');

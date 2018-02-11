@@ -55,7 +55,7 @@ export class Page {
     title: string;
 
     safeContent: SafeHtml;
-    staticResourceContent: SafeUrl;
+    staticResourceContent: string;
 
     classKey: string;
 
@@ -67,7 +67,7 @@ export class Page {
 
         if (data.class_key === 'modStaticResource') {
             let staticContent = 'http://arrowheadyouth.com/cms/' + data.content;
-            page.staticResourceContent = sanitizer.bypassSecurityTrustUrl(staticContent);
+            page.staticResourceContent = staticContent;
         } else {
             page.safeContent = sanitizer.bypassSecurityTrustHtml(data.content);
         }
