@@ -1,6 +1,6 @@
 <div *ngIf="page" id="home" class="global-page-styles">
 
-    <mdl-slider [slides]="page.slides" [useChevrons]="true" [auto]="true"></mdl-slider>
+    <app-carousel [slides]="page.slides" [useChevrons]="true" [auto]="true"></app-carousel>
 
     <div id="welcomeBackground">
         <div class="max-width-container" [innerHTML]="page.safeContent"></div>

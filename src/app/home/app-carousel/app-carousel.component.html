@@ -15,22 +15,10 @@
           [style.background]="'url(' + slide.image + ')'"
           [style.backgroundSize]="'cover'"
           [style.backgroundRepeat]="'no-repeat'"
-          [style.backgroundPosition]="'top center'">
-
-      <span *ngIf="slide.linkIsExternal;then external else internal"></span>
-
-                    <ng-template #external>
-                        <a mat-button [href]="slide.link"></a>
-                    </ng-template>
-
-                    <ng-template #internal>
-                        <a mat-button [routerLink]="['/', slide.link]" routerLinkActive="active"></a>
-                    </ng-template>
-
-
+          [style.backgroundPosition]="'center center'">
     </span>
 
-  <span class="max-width-container">
+  <span class="max-width-caption-container">
 
         <span [class]="'caption-container '">
 
@@ -51,3 +39,4 @@
     </span>
 
 </div>
+

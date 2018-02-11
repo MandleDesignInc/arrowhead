@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
-import { MdlComponentsModule } from 'mdl-components';
 import {HomeRoutingModule} from './home-routing.module';
 import {MatButtonModule, MatCardModule} from '@angular/material';
+import { AppCarouselComponent } from './app-carousel/app-carousel.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MdlComponentsModule,
     HomeRoutingModule,
     MatCardModule,
     MatButtonModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, AppCarouselComponent]
 })
 export class HomeModule { }

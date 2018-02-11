@@ -238,6 +238,7 @@ export class EmploymentService {
         formData.set('requestType', 'application'); // TODO: need refactoring here to clear up confusion -- pattern is to set request type in data objects static method
         formData.append('uploadFile', file, fileName);
         formData.append('pageId', id.toString());
+
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         let options = new RequestOptions({headers: headers});

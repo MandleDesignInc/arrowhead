@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import {DomSanitizer, SafeHtml} from '@angular/platform-browser';
-import { MdlSlide, MdlSlideData } from 'mdl-components/mdl-slider/mdl-slide';
+import {AppSlide} from './app-carousel/app-slide';
 
 export class FeatureData {
     title: string;
@@ -47,7 +47,7 @@ export class Feature {
 export class HomePageData {
 
     features: FeatureData[];
-    slides: MdlSlideData[];
+    slides: AppSlide[];
 
     id: number;
     type: string;
@@ -97,7 +97,7 @@ export class HomePage {
 
     safeContent: SafeHtml;
 
-    slides: MdlSlide[];
+    slides: AppSlide[];
 
     features: Feature[];
 
@@ -109,10 +109,11 @@ export class HomePage {
 
         page.safeContent = sanitizer.bypassSecurityTrustHtml(data.content);
 
+        // TODO: refactor and clean up duplication - object instantiation here can be skipped...
         page.slides = [];
         data.slides.forEach(slide => {
 
-           page.slides.push(MdlSlide.fromData(slide));
+           page.slides.push(AppSlide.fromData(slide));
 
 
         });
