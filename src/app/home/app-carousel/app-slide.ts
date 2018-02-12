@@ -1,10 +1,10 @@
 export class AppSlide {
 
-  constructor(public id: string, public caption: string, public image: string, public state: string = 'inactive') {}
+  constructor(public id: string, public caption: string, public image: string, public link: string, public state: string = 'inactive') {}
 
   static fromData(data: AppSlideData): AppSlide {
 
-    return new AppSlide(data.id, data.caption, data.image);
+    return new AppSlide(data.id, data.caption, data.image, data.link);
 
   }
 
@@ -18,7 +18,7 @@ export class AppSlideData {
   id: string;
   caption: string;
   image: string;
-
+  link: string;
 }
 
 

@@ -22,7 +22,10 @@
 
         <span [class]="'caption-container '">
 
-            <span class="caption">{{activeCaption}}</span>
+            <span class="caption">
+                <a *ngIf="activeLink!=''" href="/{{activeLink}}">{{activeCaption}}</a>
+                <span *ngIf="activeLink==''">{{activeCaption}}</span>
+            </span>
 
             <span *ngIf="useIndicators" class="indicators">
 

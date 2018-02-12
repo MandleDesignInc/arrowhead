@@ -50,6 +50,11 @@
   justify-content: center;
 }
 
+.caption a {
+  color: #fff;
+  text-decoration: none;
+}
+
 .indicators {
   flex: 1;
 

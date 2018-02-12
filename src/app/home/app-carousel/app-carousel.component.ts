@@ -50,6 +50,7 @@ export class AppCarouselComponent implements AfterViewInit, OnDestroy {
 
   activeIndex: number = -1;
   activeCaption: string = '';
+  activeLink: string;
 
 
 
@@ -88,7 +89,7 @@ export class AppCarouselComponent implements AfterViewInit, OnDestroy {
     this.slides[index].toggleState();
 
     this.activeCaption = this.slides[index].caption;
-
+    this.activeLink = this.slides[index].link;
     this.activeIndex = index;
 
   }
